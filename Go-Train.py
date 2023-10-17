@@ -146,7 +146,7 @@ def make_payment(price, user_account):
 if __name__ == "__main__":
     user_list = []
     train_list = []
-#OBJECTS FOR USERS
+
     user1 = User("mariam", 19, 1, 1111111, "mariam@gmail.com")
     user2 = User("abdelrahman", 22, 2, 2222222, "abdo@gmail.com")
     user3 = User("fatma", 19, 3, 3333333, "fatma@gmail.com")
@@ -155,7 +155,7 @@ if __name__ == "__main__":
     user6 = User("am", 20, 6, 5555555, "joudy@gmail.com")
 
     user_list.extend([user1, user2, user3, user4, user5, user6])
-#OBJECTS FOR TRAIN 
+
     train1 = Train(
         train_id=88,
         name="Express123",
@@ -166,7 +166,7 @@ if __name__ == "__main__":
     train_list.append(train1)
 
     logged_in_user = None  # Initialize the logged-in user variable
-    class_choice = 0    # Initialize the class_choice variable
+    class_choice = 0
     while True:
         if logged_in_user is None:
             print("Welcome to the Booking System!")
@@ -178,8 +178,8 @@ if __name__ == "__main__":
             print("Press 4 to Display Booked Tickets.")
             print("Press 5 for cancellation.")
             print("Press 6 to Exit.")
-            operation = int(input("Select an operation: "))
-            
+        operation = int(input("Select an operation: "))
+
         if logged_in_user is None:
 
             if operation == 1:
@@ -233,11 +233,14 @@ if __name__ == "__main__":
                 print("Please log in to view booked tickets.")
 
 
+
+
         elif operation == 5:
             if logged_in_user:
                 for train in train_list:
                              cancellation(train, logged_in_user)
                          
+
 
 
         elif operation == 6:
