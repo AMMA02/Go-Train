@@ -99,7 +99,7 @@ def login(user_list):
 
     print("Invalid login credentials. Please try again.")
     return None  # Return None if login fails
-# Function to registration new user 
+# Function to register new user 
 def signup(user_list):
     name = input("Enter your name: ").lower()
     age = int(input("Enter your age: "))
@@ -111,7 +111,7 @@ def signup(user_list):
     new_user = User(name, age, ID, phone_number, email)
     user_list.append(new_user)
 #----------------------------------------------------------------
-def calculate_ticket_price(class_choice, num_tickets):
+def calculate_ticket_price(class_choice, num_tickets): #function to calculate ticket price
     ticket_prices = {
         1: 450,  # 1st class
         2: 350,  # 2nd class
@@ -122,7 +122,7 @@ def calculate_ticket_price(class_choice, num_tickets):
     else:
         return None
 
-def make_payment(price, user_account):
+def make_payment(price, user_account): #function to make payment process
     if price is not None and price > 0:
         print(f"Price of tickets: {price} L.E.")
         choice = int(input("Choose a payment method enter 1 for credit and 2 for vodafone Cash): "))
@@ -154,9 +154,9 @@ if __name__ == "__main__":
     user4 = User("hussein", 15, 4, 4444444, "hussein@gmail.com")
     user5 = User("joudy", 20, 5, 5555555, "joudy@gmail.com")
     user6 = User("am", 20, 6, 5555555, "joudy@gmail.com")
-
+#list of users
     user_list.extend([user1, user2, user3, user4, user5, user6])
-
+# object Form train class
     train1 = Train(
         train_id=88,
         name="Express123",
@@ -165,7 +165,7 @@ if __name__ == "__main__":
         total_seats=100,
         available_seats=80)
     train_list.append(train1)
-# Initialize the logged-in user variable
+# Initialize the logged-in user variable & class of ticket 
     logged_in_user = None  
     class_choice = 0
     while True:
