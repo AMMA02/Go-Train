@@ -24,17 +24,17 @@ class Train: # Train class
         self.available_seats = available_seats
         self.booked_tickets = {}  # Store booked tickets for each train
 #----------------------functions-------------------
-    def display_schedule(self): 
+    def display_schedule(self): # function(in train class) to show schedule of available Trains
         print(f"Train Name: {self.name}")
         print(f"Train ID: {self.train_id}")
         print(f"Departure Time: {self.departure_time}")
         print(f"Route: {', '.join(self.route)}")
 
-    def display_available_seats(self):
+    def display_available_seats(self): # function(in train class) to show available seats of Trains
         print(f"Train Name: {self.name}")
         print(f"Available Seats: {self.available_seats}/{self.total_seats}")
 
-    def book_ticket(self, num_tickets, user, class_choice,seat_numbers):
+    def book_ticket(self, num_tickets, user, class_choice,seat_numbers): # function(in train class) to book Tickets
         if num_tickets <= self.available_seats:
             self.available_seats -= num_tickets
             if user.name not in self.booked_tickets:
@@ -47,7 +47,7 @@ class Train: # Train class
             print(f"Sorry, there are not enough seats available on {self.name}.")
 
 
-    def display_booked_tickets(self, user):
+    def display_booked_tickets(self, user):  # function(in train class) to display or show booked Tickets
         if user.name in self.booked_tickets:
             print(f"Booked tickets for {user.name} on {self.name}:")
             for ticket in self.booked_tickets[user.name]:
@@ -56,7 +56,8 @@ class Train: # Train class
             print(f"No booked tickets found for {user.name} on {self.name}.")
 
 #----------------------------------------------------------------------------
-def allocate_seats(train, num_tickets):
+
+def allocate_seats(train, num_tickets):    # function to allocate seats by random library 
     if num_tickets <= train.available_seats:
         seat_numbers = list(range(1, train.available_seats + 1))
         random.shuffle(seat_numbers)
@@ -69,7 +70,7 @@ def allocate_seats(train, num_tickets):
         return None
 #-------------------------------------------------------------------------------------
 
-def cancellation(train, logged_in_user):
+def cancellation(train, logged_in_user): # function to cancel booked tickets
     if logged_in_user.name in train.booked_tickets:
         print(f"Are you sure you want to cancel your tickets for {logged_in_user.name} on {train.name}?")
         print("1. Yes")
@@ -86,7 +87,7 @@ def cancellation(train, logged_in_user):
 #-------------------------------------------------------------------------------------
 
 ## User Functions
-
+# Function to login user
 def login(user_list):
     x = input("Enter your name: ").lower()
     y = int(input("Enter ID: "))
@@ -98,7 +99,7 @@ def login(user_list):
 
     print("Invalid login credentials. Please try again.")
     return None  # Return None if login fails
-
+# Function to registration new user 
 def signup(user_list):
     name = input("Enter your name: ").lower()
     age = int(input("Enter your age: "))
@@ -146,7 +147,7 @@ def make_payment(price, user_account):
 if __name__ == "__main__":
     user_list = []
     train_list = []
-
+# Objects for User Class 
     user1 = User("mariam", 19, 1, 1111111, "mariam@gmail.com")
     user2 = User("abdelrahman", 22, 2, 2222222, "abdo@gmail.com")
     user3 = User("fatma", 19, 3, 3333333, "fatma@gmail.com")
@@ -164,8 +165,8 @@ if __name__ == "__main__":
         total_seats=100,
         available_seats=80)
     train_list.append(train1)
-
-    logged_in_user = None  # Initialize the logged-in user variable
+# Initialize the logged-in user variable
+    logged_in_user = None  
     class_choice = 0
     while True:
         if logged_in_user is None:
